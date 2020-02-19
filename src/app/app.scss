@@ -1,0 +1,9 @@
+.app {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 63px auto 50px;
+  font-family: sans-serif;
+
+  color: var(--text-color);
+  background-color: var(--bg-color);
+}
