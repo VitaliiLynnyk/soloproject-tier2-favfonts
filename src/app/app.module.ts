@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { ContainersModule } from "./containers/containers.module";
 
+import { GoogleFontsService } from "./services/googleFonts.service";
+
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -13,8 +15,7 @@ import { AppComponent } from './app.component';
     BrowserModule,
     ContainersModule
   ],
-  providers: [],
+  providers: [ GoogleFontsService ],
   bootstrap: [ AppComponent ]
 })
-export class AppModule {
-}
+export class AppModule {}
