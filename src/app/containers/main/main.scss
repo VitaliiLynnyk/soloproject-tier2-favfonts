@@ -1,0 +1,42 @@
+.main {
+  font-size: 1.6rem;
+  padding: 34px 48px;
+}
+
+.articles-res {
+  margin: 2rem;
+  display: grid;
+  grid-gap: 4rem;
+}
+
+.grid-table {
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.card {
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+
+  display: grid;
+  grid-auto-rows: auto auto minmax(400px, 1fr);
+}
+
+.card .title-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card .title-wrapper .fa-plus-circle {
+  color: var(--danger-color);
+  cursor: pointer;
+}
+
+.card .author {
+  color: var(--second-text-color);
+}
+
+.card .text {
+  align-self: center;
+  word-break: break-all;
+  line-height: 2;
+}

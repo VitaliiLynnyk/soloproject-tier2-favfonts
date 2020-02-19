@@ -1,0 +1,107 @@
+.toolbar {
+  &-wrapper {
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr repeat(4, auto);
+    grid-gap: 20px;
+  }
+
+  &-search,
+  &-text,
+  &-fontsize {
+    border-right: 1px solid var(--border-color);
+  }
+
+  &-search,
+  &-text,
+  &-fontsize,
+  &-changeBg,
+  &-view,
+  &-refresh {
+    align-self: center;
+  }
+
+  &-search {
+    position: relative;
+
+    .fa-search {
+      position: absolute;
+    }
+
+    input {
+      margin-left: 1.5em;
+    }
+  }
+
+  &-refresh {
+    cursor: pointer;
+  }
+
+  &-fontsize {
+    select {
+      font-size: inherit;
+      outline: none;
+      border: none;
+      background-color: inherit;
+      color: var(--text-color);
+      cursor: pointer;
+    }
+  }
+
+  &-changeBg {
+    input[name="bgColor"] {
+      display: none;
+
+      &:checked + label {
+        border: 1px solid var(--danger-color);
+      }
+
+      & + label {
+        display: inline-block;
+        position: relative;
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 50%;
+        border: 1px solid var(--border-color);
+        cursor: pointer;
+      }
+    }
+
+    input[value="black"] + label {
+      background-color: var(--black-color);
+    }
+
+    input[value="white"] + label {
+      background-color: var(--white-color);
+    }
+  }
+
+  &-view {
+    input[name="view"] {
+      display: none;
+
+      & + label {
+        display: inline-block;
+        position: relative;
+        width: 1.5rem;
+        height: 1.5rem;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.searchInput {
+  outline: none;
+  border: none;
+  font-size: inherit;
+  width: 95%;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+
+  &::placeholder {
+    color: var(--text-color);
+  }
+}
