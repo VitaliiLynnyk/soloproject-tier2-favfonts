@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from "@angular/common";
 import { HttpClientModule } from "@angular/common/http";
 
+import { CardDirective } from "../directives/card.directive";
+
 import { MainComponent } from "./main/main.component";
 import { HeaderComponent } from "./header/header.component";
 import { FooterComponent } from "./footer/footer.component";
@@ -13,6 +15,7 @@ import { ToolbarComponent } from "./main/toolbar/toolbar.component";
     HttpClientModule
   ],
   declarations: [
+    CardDirective,
     MainComponent,
     HeaderComponent,
     FooterComponent,

@@ -2,14 +2,15 @@
   <app-toolbar></app-toolbar>
   <div id="articles-res"
        class="articles-res grid-table">
-    <article class="card barlow">
+    <article class="card barlow"
+             *ngFor="let font of fonts"
+             appCardDirective
+             fontFamily="{{font.family}}">
       <div class="title-wrapper">
-        <h2 class="name">Barlow</h2>
+        <h2 class="name">{{font.family}}</h2>
         <i class="fa fa-plus-circle"></i>
       </div>
-      <h3 class="author">Jeremy Tribby</h3>
       <p class="text">Then came the night of the first falling star.</p>
     </article>
   </div>
 </main>
-{{ fonts[0].variants | json }}
