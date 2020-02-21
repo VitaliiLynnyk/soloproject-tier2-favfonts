@@ -5,7 +5,8 @@
     <article class="card barlow"
              *ngFor="let font of fonts"
              appCardDirective
-             fontFamily="{{font.family}}">
+             [fontFamilyName]="font.family"
+             [fontFamilyUrl]="'https://fonts.googleapis.com/css?family=' + font.family + '&display=swap'">
       <div class="title-wrapper">
         <h2 class="name">{{font.family}}</h2>
         <i class="fa fa-plus-circle"></i>

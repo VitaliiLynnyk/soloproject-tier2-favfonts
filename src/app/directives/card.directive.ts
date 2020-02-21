@@ -1,12 +1,15 @@
-import { Directive, ElementRef, Inject, Input, OnInit } from '@angular/core';
+import { Directive, ElementRef, Inject, Input, OnDestroy, OnInit } from '@angular/core';
 import { DOCUMENT } from "@angular/common";
 
 @Directive({
   selector: '[appCardDirective]'
 })
-export class CardDirective implements OnInit {
+export class CardDirective implements OnInit, OnDestroy {
   @Input()
-  fontFamily: string;
+  fontFamilyName: string;
+
+  @Input()
+  fontFamilyUrl: string;
 
   constructor(
     private el: ElementRef,
@@ -14,8 +17,8 @@ export class CardDirective implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.addFontFamily(this.fontFamily);
-    this.addLink(`https://fonts.googleapis.com/css?family=${this.fontFamily}&display=swap`);
+    this.addFontFamily(this.fontFamilyName);
+    this.addLink(this.fontFamilyUrl);
   }
 
   private addFontFamily(fontFamily) {
@@ -27,5 +30,13 @@ export class CardDirective implements OnInit {
     link.setAttribute('rel','stylesheet');
     link.setAttribute('href', url);
     this.doc.head.appendChild(link);
+  }
+
+  private removeLink(url) {
+    this.doc.header.querySelector(`link[href="${url}"]`).remove();
+  }
+
+  ngOnDestroy() {
+    this.removeLink(this.fontFamilyUrl);
   }
 }
