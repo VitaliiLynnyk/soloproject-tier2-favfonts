@@ -19,6 +19,6 @@ export class MainComponent implements OnInit {
   }
 
   private fetchFonts() {
-    this.googleFontsService.fetchFonts().subscribe(fonts => this.fonts = fonts.slice(0, 10));
+    this.googleFontsService.fetchFonts().subscribe(fonts => this.fonts = fonts.slice(0, 30));
   }
 }

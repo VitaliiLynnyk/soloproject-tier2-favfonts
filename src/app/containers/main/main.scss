@@ -18,25 +18,25 @@
   border-top: 1px solid var(--border-color);
 
   display: grid;
-  grid-auto-rows: auto auto minmax(400px, 1fr);
-}
+  grid-template-rows: auto minmax(400px, 1fr);
 
-.card .title-wrapper {
-  display: flex;
-  justify-content: space-between;
-}
+  .title-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
 
-.card .title-wrapper .fa-plus-circle {
-  color: var(--danger-color);
-  cursor: pointer;
-}
+  .fa-plus-circle {
+    color: var(--danger-color);
+    cursor: pointer;
+  }
 
-.card .author {
-  color: var(--second-text-color);
-}
+  .author {
+    color: var(--second-text-color);
+  }
 
-.card .text {
-  align-self: center;
-  word-break: break-all;
-  line-height: 2;
+  .text {
+    align-self: center;
+    word-break: break-all;
+    line-height: 2;
+  }
 }
