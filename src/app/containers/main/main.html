@@ -3,16 +3,8 @@
   <div id="articles-res"
        class="articles-res grid-table"
        infinite-scroll (scrolled)="onScrollDown()">
-    <article class="card barlow"
-             *ngFor="let font of getFonts(pageNumber)"
-             appCardDirective
-             [fontFamilyName]="font.family"
-             [fontFamilyUrl]="'https://fonts.googleapis.com/css?family=' + font.family + '&display=swap'">
-      <div class="title-wrapper">
-        <h2 class="name">{{font.family}}</h2>
-        <i class="fa fa-plus-circle"></i>
-      </div>
-      <p class="text">Then came the night of the first falling star.</p>
-    </article>
+   <app-card *ngFor="let font of getFonts(pageNumber)"
+              [font]="font"
+              [fontUrl]="'https://fonts.googleapis.com/css?family='"></app-card>
   </div>
 </main>

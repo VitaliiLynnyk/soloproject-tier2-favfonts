@@ -5,7 +5,7 @@ import { map } from "rxjs/operators";
 
 import { environment } from "../../environments/environment";
 
-import { FontModel } from "../interfaces/fontModel";
+import { FontModel } from "../models/fontModel";
 
 interface GoogleFontsResponse {
   kind: string;

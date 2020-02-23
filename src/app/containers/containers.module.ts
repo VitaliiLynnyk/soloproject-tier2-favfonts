@@ -6,6 +6,7 @@ import { InfiniteScrollModule } from "ngx-infinite-scroll";
 
 import { CardDirective } from "../directives/card.directive";
 
+import { CardComponent } from "./main/card/card.component";
 import { MainComponent } from "./main/main.component";
 import { HeaderComponent } from "./header/header.component";
 import { FooterComponent } from "./footer/footer.component";
@@ -18,6 +19,7 @@ import { ToolbarComponent } from "./main/toolbar/toolbar.component";
     InfiniteScrollModule
   ],
   declarations: [
+    CardComponent,
     CardDirective,
     MainComponent,
     HeaderComponent,

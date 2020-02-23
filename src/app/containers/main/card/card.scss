@@ -1,0 +1,27 @@
+.card {
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+
+  display: grid;
+  grid-template-rows: auto minmax(400px, 1fr);
+
+  .title-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .fa-plus-circle {
+    color: var(--danger-color);
+    cursor: pointer;
+  }
+
+  .author {
+    color: var(--second-text-color);
+  }
+
+  .text {
+    align-self: center;
+    word-break: break-all;
+    line-height: 2;
+  }
+}

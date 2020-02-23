@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { GoogleFontsService } from "../../services/googleFonts.service";
 
-import { FontModel } from "../../interfaces/fontModel";
+import { FontModel } from "../../models/fontModel";
 
 @Component({
   selector: 'app-main',
