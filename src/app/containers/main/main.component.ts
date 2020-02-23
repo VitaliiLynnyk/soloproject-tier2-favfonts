@@ -11,6 +11,7 @@ import { FontModel } from "../../interfaces/fontModel";
 })
 export class MainComponent implements OnInit {
   fonts: FontModel[] = [];
+  pageNumber = 1;
 
   constructor(private googleFontsService: GoogleFontsService) {}
 
@@ -18,7 +19,15 @@ export class MainComponent implements OnInit {
     this.fetchFonts();
   }
 
+  onScrollDown() {
+    this.pageNumber++;
+  }
+
+  getFonts(pageNum = 1) {
+    return this.fonts.slice(0, pageNum * 10);
+  }
+
   private fetchFonts() {
-    this.googleFontsService.fetchFonts().subscribe(fonts => this.fonts = fonts.slice(0, 30));
+    this.googleFontsService.fetchFonts().subscribe(fonts => this.fonts = fonts);
   }
 }

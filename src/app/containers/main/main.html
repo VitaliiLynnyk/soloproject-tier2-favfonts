@@ -1,9 +1,10 @@
 <main class="main">
   <app-toolbar></app-toolbar>
   <div id="articles-res"
-       class="articles-res grid-table">
+       class="articles-res grid-table"
+       infinite-scroll (scrolled)="onScrollDown()">
     <article class="card barlow"
-             *ngFor="let font of fonts"
+             *ngFor="let font of getFonts(pageNumber)"
              appCardDirective
              [fontFamilyName]="font.family"
              [fontFamilyUrl]="'https://fonts.googleapis.com/css?family=' + font.family + '&display=swap'">
