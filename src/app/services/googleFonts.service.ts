@@ -38,7 +38,12 @@ export class GoogleFontsService {
     return this.fonts.slice(0, pageNumber * counter);
   }
 
-  getAllFonts(): FontModel[] {
-    return this.fonts.slice();
+  getAllFonts() {
+    this.fontsChanged.next(this.fonts.slice());
+  }
+
+  filterFonts(value: string) {
+    const filteredFonts = this.fonts.filter((e: FontModel) => e.family.toLowerCase().indexOf(value) >= 0);
+    this.fontsChanged.next(filteredFonts);
   }
 }

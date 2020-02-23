@@ -25,20 +25,19 @@ export class MainComponent implements OnInit, OnDestroy {
   }
 
   subscribeFontChange() {
-    this.subscription = this.googleFontsService.fontsChanged.subscribe(() => {
-      this.setFonts(this.pageNumber);
+    this.subscription = this.googleFontsService.fontsChanged.subscribe(fonts => {
+      if (!this.scrolling) {
+        this.fonts = fonts;
+      } else {
+        this.pageNumber = 1;
+        this.onScrollDown();
+      }
     });
   }
 
   onScrollDown() {
-    if (this.scrolling) {
-      this.pageNumber++;
-      this.setFonts(this.pageNumber);
-    }
-  }
-
-  setFonts(pageNumber: number) {
-    this.fonts = this.googleFontsService.getFonts(pageNumber);
+    this.fonts = this.googleFontsService.getFonts(this.pageNumber);
+    this.pageNumber++;
   }
 
   ngOnDestroy() {

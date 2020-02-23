@@ -1,57 +1,30 @@
-import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
-
-import { Subscription } from 'rxjs';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { GoogleFontsService } from '../../../services/googleFonts.service';
-
-import { FontModel } from '../../../models/fontModel';
 
 @Component({
   selector: 'app-toolbar',
   templateUrl: './toolbar.html',
   styleUrls: [ './toolbar.scss' ]
 })
-export class ToolbarComponent implements OnInit, OnDestroy {
-  subscription: Subscription;
-
-  @Input()
-  fonts: FontModel[];
-
-  @Output()
-  fontsChange = new EventEmitter<FontModel[]>();
-
+export class ToolbarComponent {
   @Input()
   scrolling: boolean;
 
   @Output()
   scrollingChange = new EventEmitter<boolean>();
 
-  fontsFullArray: FontModel[] = [];
-
   constructor(private googleFontsService: GoogleFontsService) {}
-
-  ngOnInit() {
-    this.subscribeFontsChanged();
-  }
-
-  subscribeFontsChanged() {
-    this.subscription = this.googleFontsService.fontsChanged.subscribe(() => this.fontsFullArray = this.googleFontsService.getAllFonts());
-  }
 
   searchFont(event) {
     const { target: { value } } = event;
 
     if (value) {
       this.scrollingChange.emit(false);
-      const filteredFonts = this.fonts.filter((e: FontModel) => e.family.toLowerCase().indexOf(value) >= 0);
-      this.fontsChange.emit(filteredFonts);
+      this.googleFontsService.filterFonts(value);
     } else {
       this.scrollingChange.emit(true);
-      this.fontsChange.emit(this.fontsFullArray);
+      this.googleFontsService.getAllFonts();
     }
-  }
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
   }
 }
