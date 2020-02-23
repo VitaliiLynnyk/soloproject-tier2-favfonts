@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { ComponentsModule } from "./components/components.module";
+import { ComponentsModule } from './components/components.module';
 
-import { GoogleFontsService } from "./services/googleFonts.service";
+import { GoogleFontsService } from './services/googleFonts.service';
 
 import { AppComponent } from './app.component';
 

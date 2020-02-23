@@ -1,10 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 
-import { Subscription } from "rxjs";
+import { Subscription } from 'rxjs';
 
-import { GoogleFontsService } from "../../services/googleFonts.service";
+import { GoogleFontsService } from '../../services/googleFonts.service';
 
-import { FontModel } from "../../models/fontModel";
+import { FontModel } from '../../models/fontModel';
 
 @Component({
   selector: 'app-main',
@@ -16,6 +16,7 @@ export class MainComponent implements OnInit, OnDestroy {
 
   fonts: FontModel[] = [];
   pageNumber = 1;
+  scrolling = true;
 
   constructor(private googleFontsService: GoogleFontsService) {}
 
@@ -30,8 +31,10 @@ export class MainComponent implements OnInit, OnDestroy {
   }
 
   onScrollDown() {
-    // this.pageNumber++;
-    // this.setFonts(this.pageNumber);
+    if (this.scrolling) {
+      this.pageNumber++;
+      this.setFonts(this.pageNumber);
+    }
   }
 
   setFonts(pageNumber: number) {

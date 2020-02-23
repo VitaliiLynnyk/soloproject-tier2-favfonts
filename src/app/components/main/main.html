@@ -1,5 +1,7 @@
 <main class="main">
-  <app-toolbar (fontsChange)="fonts = $event"></app-toolbar>
+  <app-toolbar [(fonts)]="fonts"
+               [(scrolling)]="scrolling"
+  ></app-toolbar>
   <div id="articles-res"
        class="articles-res grid-table"
        infinite-scroll (scrolled)="onScrollDown()">

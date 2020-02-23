@@ -1,4 +1,4 @@
-type fileType = {[key:string]: string};
+type fileType = { [key: string]: string };
 
 export class FontModel {
   kind: string;
@@ -16,6 +16,6 @@ export class FontModel {
     this.subsets = data.subsets.map(el => el);
     this.version = data.version;
     this.lastModified = data.lastModified;
-    this.files = {...data.files};
+    this.files = { ...data.files };
   }
 }

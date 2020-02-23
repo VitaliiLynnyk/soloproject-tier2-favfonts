@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { GoogleFontsService } from "./services/googleFonts.service";
+import { GoogleFontsService } from './services/googleFonts.service';
 
 @Component({
   selector: 'app-root',
