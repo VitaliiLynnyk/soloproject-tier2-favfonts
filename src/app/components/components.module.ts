@@ -34,4 +34,4 @@ import { ToolbarComponent } from "./main/toolbar/toolbar.component";
     FooterComponent
   ]
 })
-export class ContainersModule {}
+export class ComponentsModule {}

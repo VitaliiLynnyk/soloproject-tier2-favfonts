@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { ContainersModule } from "./containers/containers.module";
+import { ComponentsModule } from "./components/components.module";
 
 import { GoogleFontsService } from "./services/googleFonts.service";
 
@@ -13,7 +13,7 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    ContainersModule
+    ComponentsModule
   ],
   providers: [ GoogleFontsService ],
   bootstrap: [ AppComponent ]
