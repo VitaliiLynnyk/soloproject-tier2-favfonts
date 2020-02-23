@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from "@angular/common";
 import { HttpClientModule } from "@angular/common/http";
+import { FormsModule } from "@angular/forms";
 
 import { InfiniteScrollModule } from "ngx-infinite-scroll";
 
@@ -16,7 +17,8 @@ import { ToolbarComponent } from "./main/toolbar/toolbar.component";
   imports: [
     CommonModule,
     HttpClientModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    FormsModule
   ],
   declarations: [
     CardComponent,
