@@ -13,7 +13,7 @@ export class CardDirective implements OnInit, OnDestroy {
 
   constructor(
     private el: ElementRef,
-    @Inject(DOCUMENT) private doc
+    @Inject(DOCUMENT) private doc: Document
   ) {}
 
   ngOnInit() {
@@ -26,14 +26,16 @@ export class CardDirective implements OnInit, OnDestroy {
   }
 
   private addLink(url) {
-    let link: HTMLLinkElement = this.doc.createElement('link');
-    link.setAttribute('rel','stylesheet');
-    link.setAttribute('href', url);
-    this.doc.head.appendChild(link);
+    if (!this.doc.head.querySelector(`link[href="${ url }"]`)) {
+      let link: HTMLLinkElement = this.doc.createElement('link');
+      link.setAttribute('href', url);
+      this.doc.head.appendChild(link);
+    }
   }
 
   private removeLink(url) {
-    this.doc.header.querySelector(`link[href="${url}"]`).remove();
+    const link = this.doc.head.querySelector(`link[href="${ url }"]`);
+    if (link) link.remove();
   }
 
   ngOnDestroy() {

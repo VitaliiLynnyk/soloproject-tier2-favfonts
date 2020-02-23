@@ -30,8 +30,8 @@ export class MainComponent implements OnInit, OnDestroy {
   }
 
   onScrollDown() {
-    this.pageNumber++;
-    this.setFonts(this.pageNumber);
+    // this.pageNumber++;
+    // this.setFonts(this.pageNumber);
   }
 
   setFonts(pageNumber: number) {

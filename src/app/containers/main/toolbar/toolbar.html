@@ -3,7 +3,8 @@
     <i class="fa fa-search"></i>
     <input type="text"
            class="searchInput searchFont"
-           placeholder="Search Fonts"/>
+           placeholder="Search Fonts"
+           (keyup)="searchFont($event)"/>
   </div>
   <div class="toolbar-text">
     <input type="text"

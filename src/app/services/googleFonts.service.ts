@@ -37,4 +37,8 @@ export class GoogleFontsService {
   getFonts(pageNumber = 1, counter=10): FontModel[] {
     return this.fonts.slice(0, pageNumber * counter);
   }
+
+  getAllFonts(): FontModel[] {
+    return this.fonts.slice();
+  }
 }
