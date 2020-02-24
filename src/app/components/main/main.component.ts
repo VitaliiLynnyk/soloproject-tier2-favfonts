@@ -26,7 +26,7 @@ export class MainComponent implements OnInit, OnDestroy {
 
   subscribeFontChange() {
     this.subscription = this.googleFontsService.fontsChanged.subscribe(fonts => {
-      this.fonts = fonts;
+      this.fonts = fonts.slice(0, 10);
     });
   }
 

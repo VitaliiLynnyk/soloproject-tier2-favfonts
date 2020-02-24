@@ -13,17 +13,14 @@
            (keyup)="typeText($event)"/>
   </div>
   <div class="toolbar-fontsize">
-    <select id="selectFontSize">
-      <option value="8">8px</option>
-      <option value="12">12px</option>
-      <option value="14">14px</option>
-      <option value="20">20px</option>
-      <option value="24">24px</option>
-      <option value="32"
-              selected>32px
+    <select (change)="selectFontSize($event)">
+      <option disabled
+              selected
+      > -- select text size --
       </option>
-      <option value="40">40px</option>
-      <option value="64">64px</option>
+      <option *ngFor="let val of [12, 14, 20, 24, 32, 40, 54]"
+              [value]="val">{{val}}px
+      </option>
     </select>
   </div>
   <div class="toolbar-changeBg">

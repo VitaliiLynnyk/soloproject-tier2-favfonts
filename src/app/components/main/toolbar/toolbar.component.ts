@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Inject, Input, Output } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 
 import { GoogleFontsService } from '../../../services/googleFonts.service';
 
@@ -9,7 +10,10 @@ import { GoogleFontsService } from '../../../services/googleFonts.service';
 })
 export class ToolbarComponent {
 
-  constructor(private googleFontsService: GoogleFontsService) {}
+  constructor(
+    private googleFontsService: GoogleFontsService,
+    @Inject(DOCUMENT) private doc: Document
+  ) {}
 
   searchFont(event) {
     const { target: { value } } = event;
@@ -29,5 +33,10 @@ export class ToolbarComponent {
     } else {
       this.googleFontsService.getAllFonts();
     }
+  }
+
+  selectFontSize(event) {
+    const { target: { value } } = event;
+    this.doc.body.style.setProperty('--text-size', `${value}px`);
   }
 }
