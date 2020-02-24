@@ -8,11 +8,6 @@ import { GoogleFontsService } from '../../../services/googleFonts.service';
   styleUrls: [ './toolbar.scss' ]
 })
 export class ToolbarComponent {
-  @Input()
-  scrolling: boolean;
-
-  @Output()
-  scrollingChange = new EventEmitter<boolean>();
 
   constructor(private googleFontsService: GoogleFontsService) {}
 
@@ -20,10 +15,18 @@ export class ToolbarComponent {
     const { target: { value } } = event;
 
     if (value) {
-      this.scrollingChange.emit(false);
       this.googleFontsService.filterFonts(value);
     } else {
-      this.scrollingChange.emit(true);
+      this.googleFontsService.getAllFonts();
+    }
+  }
+
+  typeText(event) {
+    const { target: { value } } = event;
+
+    if (value) {
+      this.googleFontsService.setTextInFonts(value);
+    } else {
       this.googleFontsService.getAllFonts();
     }
   }

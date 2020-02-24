@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Subject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 
 import { environment } from '../../environments/environment';
@@ -15,7 +15,7 @@ interface GoogleFontsResponse {
 
 @Injectable()
 export class GoogleFontsService {
-  fontsChanged = new Subject<FontModel[]>();
+  fontsChanged = new BehaviorSubject<FontModel[]>([]);
 
   private fonts: FontModel[] = [];
 
@@ -34,10 +34,6 @@ export class GoogleFontsService {
     this.fontsChanged.next(this.fonts.slice());
   }
 
-  getFonts(pageNumber = 1, counter = 10): FontModel[] {
-    return this.fonts.slice(0, pageNumber * counter);
-  }
-
   getAllFonts() {
     this.fontsChanged.next(this.fonts.slice());
   }
@@ -45,5 +41,10 @@ export class GoogleFontsService {
   filterFonts(value: string) {
     const filteredFonts = this.fonts.filter((e: FontModel) => e.family.toLowerCase().indexOf(value) >= 0);
     this.fontsChanged.next(filteredFonts);
+  }
+
+  setTextInFonts(value: string) {
+    const newFonts = this.fontsChanged.getValue().map(font => { return { ...font, text: value } });
+    this.fontsChanged.next(newFonts);
   }
 }

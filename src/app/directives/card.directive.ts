@@ -28,6 +28,7 @@ export class CardDirective implements OnInit, OnDestroy {
   private addLink(url) {
     if (!this.doc.head.querySelector(`link[href="${ url }"]`)) {
       let link: HTMLLinkElement = this.doc.createElement('link');
+      link.setAttribute('rel', 'stylesheet');
       link.setAttribute('href', url);
       this.doc.head.appendChild(link);
     }

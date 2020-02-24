@@ -1,10 +1,7 @@
 <main class="main">
-  <app-toolbar [(scrolling)]="scrolling"
-  ></app-toolbar>
+  <app-toolbar></app-toolbar>
   <div id="articles-res"
-       class="articles-res grid-table"
-       infinite-scroll
-       (scrolled)="onScrollDown()">
+       class="articles-res grid-table">
     <app-card *ngFor="let font of fonts"
               [font]="font"
               [fontUrl]="'https://fonts.googleapis.com/css?family='"></app-card>
