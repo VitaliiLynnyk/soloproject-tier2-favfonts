@@ -37,6 +37,6 @@ export class ToolbarComponent {
 
   selectFontSize(event) {
     const { target: { value } } = event;
-    this.doc.body.style.setProperty('--text-size', `${value}px`);
+    this.doc.body.style.setProperty('--text-size', `${ value }px`);
   }
 }

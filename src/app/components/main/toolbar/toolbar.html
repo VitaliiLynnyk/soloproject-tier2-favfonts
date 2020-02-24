@@ -16,10 +16,10 @@
     <select (change)="selectFontSize($event)">
       <option disabled
               selected
-      > -- select text size --
+      >text size
       </option>
       <option *ngFor="let val of [12, 14, 20, 24, 32, 40, 54]"
-              [value]="val">{{val}}px
+              [value]="val">{{ val }}px
       </option>
     </select>
   </div>
