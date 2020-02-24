@@ -8,6 +8,7 @@ export class FontModel {
   version: string;
   lastModified: string;
   files: fileType;
+  text: string;
 
   constructor(data: FontModel) {
     this.kind = data.kind;
@@ -17,5 +18,6 @@ export class FontModel {
     this.version = data.version;
     this.lastModified = data.lastModified;
     this.files = { ...data.files };
+    this.text = 'Then came the night of the first falling star.';
   }
 }
