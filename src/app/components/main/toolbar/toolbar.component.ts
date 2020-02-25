@@ -39,4 +39,18 @@ export class ToolbarComponent {
     const { target: { value } } = event;
     this.doc.body.style.setProperty('--text-size', `${ value }px`);
   }
+
+  changeBg(event) {
+    const { target: { value } } = event;
+    if (value === 'white') {
+      this.doc.body.style.setProperty('--bg-color', '#fff');
+      this.doc.body.style.setProperty('--text-color', '#222');
+      this.doc.body.style.setProperty('--second-text-color', 'rgba(34, 34, 34, .5)');
+    } else {
+      this.doc.body.style.setProperty('--bg-color', '#222');
+      this.doc.body.style.setProperty('--text-color', '#fff');
+      this.doc.body.style.setProperty('--second-text-color', 'rgba(255,255,255, .5)');
+    }
+  }
+
 }

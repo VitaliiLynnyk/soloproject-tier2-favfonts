@@ -28,17 +28,20 @@
            id="white"
            name="bgColor"
            value="white"
-           checked><label for="white"></label>
+           checked
+           (click)="changeBg($event)"><label for="white"></label>
     <input type="radio"
            id="black"
            name="bgColor"
-           value="black"><label for="black"></label>
+           value="black"
+           (click)="changeBg($event)"><label for="black"></label>
   </div>
   <div class="toolbar-view">
     <input id="view"
            name="view"
            type="checkbox"
-           checked><label for="view"><i class="fa fa-table"></i></label>
+           checked
+           ><label for="view"><i class="fa fa-table"></i></label>
   </div>
   <div class="toolbar-refresh">
     <i class="fa fa-refresh"></i>
