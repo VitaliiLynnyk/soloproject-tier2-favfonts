@@ -67,10 +67,6 @@
     input[name="bgColor"] {
       display: none;
 
-      &:checked + label {
-        border: 1px solid var(--danger-color);
-      }
-
       & + label {
         display: inline-block;
         position: relative;
