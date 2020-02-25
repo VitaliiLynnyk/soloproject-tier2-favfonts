@@ -46,7 +46,8 @@
            checked
            (change)="changeView($event)"><label for="view"><i [className]="view.checked ? 'fa fa-list' : 'fa fa-table'"></i></label>
   </div>
-  <div class="toolbar-refresh" (click)="reset(inputFonts, inputText)">
+  <div class="toolbar-refresh"
+       (click)="reset(inputFonts, inputText)">
     <i class="fa fa-refresh"></i>
   </div>
 </div>

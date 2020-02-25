@@ -35,12 +35,20 @@ export class ToolbarComponent {
   typeText(event) {
     const { target: { value } } = event;
 
-    if (value) {
-      this.googleFontsService.setTextInFonts(value);
+    if (this.scrolling) {
+      if (value) {
+        this.googleFontsService.setTextInFonts(value, false);
+        this.googleFontsService.getFonts();
+      } else {
+        this.googleFontsService.fetchFonts().subscribe();
+      }
     } else {
-      this.scrollingChange.emit(true);
-      this.googleFontsService.getFonts();
+      if (value) {
+        this.googleFontsService.setTextInFonts(value, true);
+      }
     }
+
+
   }
 
   selectFontSize(event) {

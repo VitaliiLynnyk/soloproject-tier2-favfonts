@@ -46,8 +46,13 @@ export class GoogleFontsService {
     this.fontsChanged.next(filteredFonts);
   }
 
-  setTextInFonts(value: string) {
-    const newFonts = this.fontsChanged.getValue().map(font => { return { ...font, text: value } });
-    this.fontsChanged.next(newFonts);
+  setTextInFonts(value: string, filtered = false) {
+    if(filtered) {
+      const newFonts = this.fontsChanged.getValue().map(font => { return { ...font, text: value } });
+      this.fontsChanged.next(newFonts);
+    } else {
+      const newFonts = this.fonts.map(font => { return { ...font, text: value } });
+      this.setFonts(newFonts);
+    }
   }
 }
