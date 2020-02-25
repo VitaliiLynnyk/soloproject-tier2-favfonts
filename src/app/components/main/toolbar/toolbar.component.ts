@@ -40,15 +40,13 @@ export class ToolbarComponent {
         this.googleFontsService.setTextInFonts(value, false);
         this.googleFontsService.getFonts();
       } else {
-        this.googleFontsService.fetchFonts().subscribe();
+        this.googleFontsService.fetchFonts().subscribe(() => this.googleFontsService.getFonts());
       }
     } else {
       if (value) {
         this.googleFontsService.setTextInFonts(value, true);
       }
     }
-
-
   }
 
   selectFontSize(event) {
