@@ -38,6 +38,7 @@ export class ToolbarComponent {
     if (value) {
       this.googleFontsService.setTextInFonts(value);
     } else {
+      this.scrollingChange.emit(true);
       this.googleFontsService.getFonts();
     }
   }
@@ -70,5 +71,12 @@ export class ToolbarComponent {
     } else {
       articlesRes.classList.remove('grid-table');
     }
+  }
+
+  reset(inputFonts, inputText) {
+    inputFonts.value = '';
+    inputText.value = '';
+    this.scrollingChange.emit(true);
+    this.googleFontsService.getFonts();
   }
 }

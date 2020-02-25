@@ -4,12 +4,14 @@
     <input type="text"
            class="searchInput searchFont"
            placeholder="Search Fonts"
+           #inputFonts
            (keyup)="searchFont($event)"/>
   </div>
   <div class="toolbar-text">
     <input type="text"
            class="searchInput"
            placeholder="Type Something"
+           #inputText
            (keyup)="typeText($event)"/>
   </div>
   <div class="toolbar-fontsize">
@@ -44,7 +46,7 @@
            checked
            (change)="changeView($event)"><label for="view"><i [className]="view.checked ? 'fa fa-list' : 'fa fa-table'"></i></label>
   </div>
-  <div class="toolbar-refresh">
+  <div class="toolbar-refresh" (click)="reset(inputFonts, inputText)">
     <i class="fa fa-refresh"></i>
   </div>
 </div>
