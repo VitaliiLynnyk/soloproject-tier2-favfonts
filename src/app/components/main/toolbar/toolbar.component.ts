@@ -9,7 +9,6 @@ import { GoogleFontsService } from '../../../services/googleFonts.service';
   styleUrls: [ './toolbar.scss' ]
 })
 export class ToolbarComponent {
-
   constructor(
     private googleFontsService: GoogleFontsService,
     @Inject(DOCUMENT) private doc: Document
@@ -54,16 +53,12 @@ export class ToolbarComponent {
   }
 
   changeView(event) {
-    const { target: { checked, labels } } = event;
-    const articlesRes = document.querySelector('#articles-res');
+    const { target: { checked } } = event;
+    const articlesRes = this.doc.body.querySelector('#articles-res');
 
     if (checked) {
-      labels[0].firstChild.classList.remove('fa-list');
-      labels[0].firstChild.classList.add('fa-table');
       articlesRes.classList.add('grid-table');
     } else {
-      labels[0].firstChild.classList.remove('fa-table');
-      labels[0].firstChild.classList.add('fa-list');
       articlesRes.classList.remove('grid-table');
     }
   }

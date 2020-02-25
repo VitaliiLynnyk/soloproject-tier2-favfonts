@@ -40,8 +40,9 @@
     <input id="view"
            name="view"
            type="checkbox"
+           #view
            checked
-           (click)="changeView($event)"><label for="view"><i class="fa fa-table"></i></label>
+           (change)="changeView($event)"><label for="view"><i [className]="view.checked ? 'fa fa-list' : 'fa fa-table'"></i></label>
   </div>
   <div class="toolbar-refresh">
     <i class="fa fa-refresh"></i>
