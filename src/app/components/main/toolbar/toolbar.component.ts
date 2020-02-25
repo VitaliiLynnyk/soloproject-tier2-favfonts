@@ -53,4 +53,18 @@ export class ToolbarComponent {
     }
   }
 
+  changeView(event) {
+    const { target: { checked, labels } } = event;
+    const articlesRes = document.querySelector('#articles-res');
+
+    if (checked) {
+      labels[0].firstChild.classList.remove('fa-list');
+      labels[0].firstChild.classList.add('fa-table');
+      articlesRes.classList.add('grid-table');
+    } else {
+      labels[0].firstChild.classList.remove('fa-table');
+      labels[0].firstChild.classList.add('fa-list');
+      articlesRes.classList.remove('grid-table');
+    }
+  }
 }
