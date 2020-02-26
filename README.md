@@ -2,6 +2,12 @@
 
 ## First tier you can find here [*code*](https://github.com/Chingu-Solo/solo-koala-145) / [*project*](https://chingu-solo.github.io/solo-koala-145/)
 
+## Tier 2 [*code*](https://github.com/VitaliiLynnyk/soloproject-tier2-favfonts) / [*project*](https://vitaliilynnyk.github.io/soloproject-tier2-favfonts/)
+
+## Development server
+
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
 ## Overview ##
 
 This project is a great opportunity to develop a clean and modern webpage. The *Favorite Fonts* app will be completed accross tiers, with each tier adding a new level of complexity. You are currently on the *Tier 2* repo. You'll be responsible for coding the **HTML**, **CSS**, and **JavaScript** to get the structure, styling, and functionality up and running.
