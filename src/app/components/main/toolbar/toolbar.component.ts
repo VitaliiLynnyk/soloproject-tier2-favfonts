@@ -15,6 +15,12 @@ export class ToolbarComponent {
   @Output()
   scrollingChange = new EventEmitter<boolean>();
 
+  @Input()
+  pageIndex: number;
+
+  @Output()
+  pageIndexChange = new EventEmitter<number>();
+
   constructor(
     private googleFontsService: GoogleFontsService,
     @Inject(DOCUMENT) private doc: Document
@@ -27,6 +33,7 @@ export class ToolbarComponent {
       this.scrollingChange.emit(false);
       this.googleFontsService.filterFonts(value);
     } else {
+      this.pageIndexChange.emit(1);
       this.scrollingChange.emit(true);
       this.googleFontsService.getFonts();
     }
@@ -40,7 +47,10 @@ export class ToolbarComponent {
         this.googleFontsService.setTextInFonts(value, false);
         this.googleFontsService.getFonts();
       } else {
-        this.googleFontsService.fetchFonts().subscribe(() => this.googleFontsService.getFonts());
+        this.googleFontsService.fetchFonts().subscribe(() => {
+          this.googleFontsService.getFonts();
+          this.pageIndexChange.emit(1);
+        });
       }
     } else {
       if (value) {
@@ -80,6 +90,7 @@ export class ToolbarComponent {
   }
 
   reset(inputFonts, inputText) {
+    this.pageIndexChange.emit(1);
     inputFonts.value = '';
     inputText.value = '';
     this.scrollingChange.emit(true);

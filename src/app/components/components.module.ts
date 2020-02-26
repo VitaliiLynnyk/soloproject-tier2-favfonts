@@ -12,13 +12,15 @@ import { MainComponent } from './main/main.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ToolbarComponent } from './main/toolbar/toolbar.component';
+import { ButtonUpComponent } from './button-up/button-up.component';
+import { ButtonUpDirective } from '../directives/button-up.directive';
 
 @NgModule({
   imports: [
+    FormsModule,
     CommonModule,
     HttpClientModule,
-    InfiniteScrollModule,
-    FormsModule
+    InfiniteScrollModule
   ],
   declarations: [
     CardComponent,
@@ -26,12 +28,16 @@ import { ToolbarComponent } from './main/toolbar/toolbar.component';
     MainComponent,
     HeaderComponent,
     FooterComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    ButtonUpComponent,
+    ButtonUpDirective
   ],
   exports: [
     MainComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ButtonUpComponent,
+    ButtonUpDirective
   ]
 })
 export class ComponentsModule {}

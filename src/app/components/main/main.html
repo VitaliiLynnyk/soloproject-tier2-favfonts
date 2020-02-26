@@ -1,5 +1,7 @@
 <main class="main">
-  <app-toolbar [(scrolling)]="scrolling"></app-toolbar>
+  <app-toolbar
+    [(scrolling)]="scrolling"
+    [(pageIndex)]="pageNumber"></app-toolbar>
   <div id="articles-res"
        class="articles-res grid-table"
        infinite-scroll
